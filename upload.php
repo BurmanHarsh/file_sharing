@@ -1,6 +1,9 @@
 <?php session_start(); include 'db.php';
 $key = "my_secret_key_123"; // 🔐 encryption key
 
+if (!is_dir('uploads')) {
+    mkdir('uploads', 0777, true);
+}
 $target = "uploads/" . basename($_FILES['file']['name']) . ".enc";
 
 $data = file_get_contents($_FILES['file']['tmp_name']);

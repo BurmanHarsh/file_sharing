@@ -4,6 +4,9 @@ if(isset($_POST['register'])){
     $user = $_POST['username'];
     $pass = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $conn->query("INSERT INTO users(username,password) VALUES('$user','$pass')");
+    
+    header("Location: login.php"); // Automatically take them to login!
+    exit();
 }
 ?>
 

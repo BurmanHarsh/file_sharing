@@ -34,14 +34,21 @@ button{
     cursor:pointer;
 }
 table{
-    margin:20px auto;
-    width:70%;
+    margin:0 auto;
+    width:100%;
     color:white;
     border-collapse:collapse;
+    background: rgba(0,0,0,0.15);
+    border-radius: 10px;
+    overflow: hidden;
 }
 td,th{
-    padding:12px;
-    border-bottom:1px solid #ccc;
+    padding:16px;
+    text-align: center;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+}
+th {
+    background: rgba(0,0,0,0.3);
 }
 .navbar{
     width:95%;
@@ -69,3 +76,57 @@ td,th{
     border-radius:6px;
 }
 
+.btn-download {
+    display: inline-block;
+    background: linear-gradient(135deg, #43e97b, #38f9d7);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.btn-download:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.dashboard-container {
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(15px);
+    padding:40px;
+    border-radius:15px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+    width:70%;
+    max-width: 900px;
+    margin: 120px auto 40px auto;
+    color:white;
+}
+
+.upload-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    background: rgba(0,0,0,0.2);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.upload-form input[type="file"] {
+    width: auto;
+    margin: 0;
+    padding: 10px;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    border-radius: 6px;
+}
+
+.upload-form button {
+    width: auto;
+    margin: 0;
+    padding: 10px 30px;
+}

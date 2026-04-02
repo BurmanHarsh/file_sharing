@@ -19,23 +19,26 @@ $user = $resUser->fetch_assoc();
         <a href="logout.php">Logout</a>
     </div>
 </div>
-<br><br><br>
-<h2 style="text-align:center;color:white;">Your Files</h2>
-<div style="text-align:center;">
-<form action="upload.php" method="POST" enctype="multipart/form-data">
-<input type="file" name="file" required>
-<button>Upload</button>
-</form>
+
+<div class="dashboard-container">
+    <h2 style="text-align:center;color:white;margin-top:0;">Your Files</h2>
+    
+    <form action="upload.php" method="POST" enctype="multipart/form-data" class="upload-form">
+        <input type="file" name="file" required>
+        <button>Upload</button>
+    </form>
+
+    <table>
+    <tr><th>File</th><th>Action</th></tr>
+    <?php
+    $uid=$_SESSION['user_id'];
+    $res=$conn->query("SELECT * FROM files WHERE user_id=$uid");
+    while($row=$res->fetch_assoc()){
+     echo "<tr><td>{$row['filename']}</td><td><a href='download.php?id={$row['id']}' class='btn-download'>Download</a></td></tr>";
+    }
+    ?>
+    </table>
 </div>
-<table>
-<tr><th>File</th><th>Action</th></tr>
-<?php
-$uid=$_SESSION['user_id'];
-$res=$conn->query("SELECT * FROM files WHERE user_id=$uid");
-while($row=$res->fetch_assoc()){
- echo "<tr><td>{$row['filename']}</td><td><a href='download.php?id={$row['id']}'>Download</a></td></tr>";
-}
-?>
-</table>
+
 </body>
 </html>
